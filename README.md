@@ -28,7 +28,7 @@ descriptive text here.
 * Orc entrance always on D:10.  One level deep and contains the Golden Rune of Zot. 
 
 ### Species
-* Humans removed
+* Humans and Deep Dwarves and Vampires removed
 
 ### Character
 * Skill training capped at 10.
@@ -52,4 +52,4 @@ descriptive text here.
 
 ### Gameplay
 * Scoring simplified
-* 
+* Orb run spawns are Vaults and Elf monsters
