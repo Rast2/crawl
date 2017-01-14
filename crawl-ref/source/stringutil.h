@@ -8,7 +8,7 @@
 
 #include "config.h"
 #include "libutil.h" // always_true
-
+#include <strings.h> //per https://crawl.develz.org/mantis/view.php?id=10589
 #ifdef CRAWL_HAVE_STRLCPY
 #include <cstring>
 #else
@@ -245,7 +245,7 @@ string make_file_time(time_t when);
 // See http://permalink.gmane.org/gmane.os.cygwin/150485 for more info.
 // Disable this workaround under MSYS2, which is based on CYGWIN but has
 // std::to_string.
-#if defined(TARGET_COMPILER_CYGWIN) && !defined(__MSYS__)
+#if defined(TARGET_COMPILER_CYGWIN) && !defined(__MSYS__) &0 // per https://crawl.develz.org/mantis/view.php?id=10589 just disabling this entirely
 // Injecting into std:: because we sometimes use std::to_string to
 // disambiguate.
 namespace std

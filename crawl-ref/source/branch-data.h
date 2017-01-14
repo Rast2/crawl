@@ -10,7 +10,8 @@ const Branch branches[NUM_BRANCHES] =
     //  floor colour, rock colour
     //  travel shortcut, runes, ambient noise level
 
-    { BRANCH_DUNGEON, NUM_BRANCHES, 0, 0, 15, 0,
+		//dungeon only 10 levels deep, no vaults, depths, or beyond
+    { BRANCH_DUNGEON, NUM_BRANCHES, 0, 0, 10, 0,
       BFLAG_NONE,
       NUM_FEATURES, DNGN_EXIT_DUNGEON, NUM_FEATURES,
       "Dungeon", "the Dungeon", "D",
@@ -18,15 +19,18 @@ const Branch branches[NUM_BRANCHES] =
       LIGHTGREY, BROWN,
       'D', {}, BRANCH_NOISE_NORMAL },
 
-    { BRANCH_TEMPLE, BRANCH_DUNGEON, 4, 7, 1, 5,
+		//RIP temple
+    { BRANCH_TEMPLE, BRANCH_DUNGEON, -1, -1, 0, 5,
       BFLAG_NO_ITEMS,
       DNGN_ENTER_TEMPLE, DNGN_EXIT_TEMPLE, NUM_FEATURES,
       "Temple", "the Ecumenical Temple", "Temple",
       nullptr,
       LIGHTGREY, BROWN,
       'T', {}, BRANCH_NOISE_NORMAL },
-
-    { BRANCH_ORC, BRANCH_DUNGEON, 9, 12, 2, 10,
+	
+		//orc entrance always on d:9
+		//one level deep, no elf
+    { BRANCH_ORC, BRANCH_DUNGEON, 9, 9, 1, 10,
       BFLAG_SPOTTY,
       DNGN_ENTER_ORC, DNGN_EXIT_ORC, NUM_FEATURES,
       "Orcish Mines", "the Orcish Mines", "Orc",
@@ -52,7 +56,9 @@ const Branch branches[NUM_BRANCHES] =
       'K', {}, BRANCH_NOISE_NORMAL },
 #endif
 
-    { BRANCH_LAIR, BRANCH_DUNGEON, 8, 11, 6, 10,
+	  //lair always on d:10
+	  //one level deep, no S branches
+    { BRANCH_LAIR, BRANCH_DUNGEON, 10, 10, 1, 12,
       BFLAG_NONE,
       DNGN_ENTER_LAIR, DNGN_EXIT_LAIR, NUM_FEATURES,
       "Lair", "the Lair of Beasts", "Lair",
