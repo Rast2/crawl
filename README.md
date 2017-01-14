@@ -6,6 +6,7 @@ descriptive text here.
 
 ## Changes
 ### Branches, Environment
+### Species
 ### Character
 ### Gods
 ### Items
@@ -25,6 +26,9 @@ descriptive text here.
 * Dungeon cut to 10 levels.
 * Lair entrance always on D:9.  One level deep and contains the Orb of Zot.
 * Orc entrance always on D:10.  One level deep and contains the Golden Rune of Zot. 
+
+### Species
+* Humans removed
 
 ### Character
 * Skill training capped at 10.
