@@ -125,14 +125,13 @@ spret_type cast_poisonous_vapours(int pow, const dist &beam, bool fail)
     }
 
     monster* mons = monster_at(beam.target);
-    if (!mons || mons->submerged())
+    if (!mons || mons->submerged() || !you.can_see(*mons))
     {
-        fail_check();
-        canned_msg(MSG_SPELL_FIZZLES);
-        return SPRET_SUCCESS; // still losing a turn
+        mpr("You can't see any monster there!");
+        return SPRET_ABORT;
     }
 
-    if (actor_cloud_immune(*mons, CLOUD_POISON) && mons->observable())
+    if (actor_cloud_immune(*mons, CLOUD_POISON))
     {
         mprf("But poisonous clouds would do no harm to %s!",
              mons->name(DESC_THE).c_str());
@@ -145,18 +144,19 @@ spret_type cast_poisonous_vapours(int pow, const dist &beam, bool fail)
     cloud_struct* cloud = cloud_at(beam.target);
     if (cloud && cloud->type != CLOUD_POISON)
     {
+        // XXX: consider replacing the cloud instead?
         mpr("There's already a cloud there!");
         return SPRET_ABORT;
     }
 
     fail_check();
 
-    const int cloud_duration = max(random2(pow + 1) / 10, 1);
+    const int cloud_duration = max(random2(pow + 1) / 10, 1); // in dekaauts
     if (cloud)
     {
         // Reinforce the cloud.
         mpr("The poisonous vapours increase!");
-        cloud->decay += cloud_duration;
+        cloud->decay += cloud_duration * 10; // in this case, we're using auts
         cloud->set_whose(KC_YOU);
     }
     else
