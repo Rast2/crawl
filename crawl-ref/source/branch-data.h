@@ -19,7 +19,7 @@ const Branch branches[NUM_BRANCHES] =
       LIGHTGREY, BROWN,
       'D', {}, BRANCH_NOISE_NORMAL },
 
-		//RIP temple
+		//temple exists but is unreachable
     { BRANCH_TEMPLE, BRANCH_DUNGEON, -1, -1, 0, 5,
       BFLAG_NO_ITEMS,
       DNGN_ENTER_TEMPLE, DNGN_EXIT_TEMPLE, NUM_FEATURES,
